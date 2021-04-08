@@ -1,0 +1,27 @@
+#nav-header>ul{
+    padding:0px 10vw;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    .search-box{
+        input{
+           position: relative;
+           padding-left: 50px;
+        }
+        i{
+            position: absolute;
+            margin-left: -200px;
+            padding-top: 8px;
+            font-size: 0.9rem;
+            color:lightgray;
+        }
+    }
+   input{
+       padding: 5px;
+       font-size: 0.9rem;
+   }
+    i{
+        padding-right: 20px;
+        font-size: 1.5rem;
+    }
+}
