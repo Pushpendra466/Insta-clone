@@ -1,12 +1,12 @@
 const express = require('express');
+const app = express();
 const db = require('./config/mongoose');
 const expressLayouts = require('express-ejs-layouts');
 
 const port = 8080;
 
-const app = express();
 
-
+app.use(express.urlencoded({extended:true}));
 app.use(express.static('./assets'));
 app.use(expressLayouts);
 // styles and script for each ejs files

@@ -1,8 +1,9 @@
 #nav-header>ul{
-    padding:0px 10vw;
+    padding:5px 10vw;
     display: flex;
     justify-content: space-between;
     list-style: none;
+    border-bottom: 1px solid lightgray;
     .search-box{
         input{
            position: relative;

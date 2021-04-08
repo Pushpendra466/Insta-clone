@@ -5,6 +5,6 @@ router.get('/',(req,res)=>{
     // console.log(req);
     return res.render('home',{title:'home'});
 });
-
+router.use('/users',require('./users'));
 
 module.exports = router;

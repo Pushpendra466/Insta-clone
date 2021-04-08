@@ -1,0 +1,16 @@
+#sign-up-container {
+  margin: 10vh auto;
+  padding: 50px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 1px solid lightgray;
+  text-align: center;
+}
+
+#sign-up-container input {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  padding: 5px;
+}
+/*# sourceMappingURL=sign-up.css.map */
