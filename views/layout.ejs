@@ -10,8 +10,9 @@
         <%- style %>
     </head>
     <body>
+        <% if(locals.user) {%>
       <%- include('_header') %>
-
+      <%}%>
       <%- body %>
 
       <%- include('_footer') %>

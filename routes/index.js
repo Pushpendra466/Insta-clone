@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const homeController = require('../controllers/home_controller');
+const passport = require('passport');
 
-router.get('/',(req,res)=>{
-    // console.log(req);
-    return res.render('home',{title:'home'});
-});
+router.get('/',passport.checkAuthentication,homeController.index);
 router.use('/users',require('./users'));
 
 module.exports = router;
