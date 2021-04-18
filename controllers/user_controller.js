@@ -1,5 +1,5 @@
 const User = require('../models/user');
-
+const bcrypt = require('bcryptjs');
 
 module.exports.signIn = (req,res)=> {
     return res.render('sign-in',{title:'Sign In'});
@@ -23,20 +23,30 @@ module.exports.create = (req,res)=>{
             return res.redirect('back');
         }
         if(!user){
-          
-            User.create(req.body,(err,user)=>{
-                if(err){
-                    console.log("Error in creating the new user ",err);
-                    return ;
-                }
-                return res.redirect('/users/sign-in');
+            bcrypt.genSalt(10, function(err, salt) {
+                bcrypt.hash(req.body.password, salt, function(err, hash) {
+                    console.log(hash);
+                   
+                    User.create({name: req.body.name,email: req.body.email, password: hash},(err,user)=>{
+                        if(err){
+                            console.log("Error in creating the new user ",err);
+                            return ;
+                        }
+                        return res.redirect('/users/sign-in');
+                    });
+                });
             });
+           
             
         }else{
             
             return res.redirect('back');
         }
     });
+}
+
+module.exports.userProfile = (req,res) =>{
+    res.render('user_profile',{title: 'Profile'});
 }
 
 module.exports.createSession = (req,res)=>{

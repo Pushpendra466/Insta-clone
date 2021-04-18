@@ -1,5 +1,5 @@
 const passport = require('passport');
-
+const bcrypt = require('bcryptjs');
 const localStrategy = require('passport-local').Strategy;
 
 const User = require('../models/user');
@@ -9,18 +9,24 @@ passport.use(new localStrategy({
     usernameField: 'email'
 },
     (email, password, done) =>{
+       
         //find a user and establish the identity
         User.findOne({email: email},(err,user)=>{
+
             if(err){
-                // console.log('Error in finding the user ---> Passport');
                 return done(err);
             }
-            if(!user || user.password != password){
-                console.log("Invalid Username/Password");
-                // req.flash('error', 'Invalid Username/Password')
-                return done(null,false);
-            }
-            return done(null,user);
+            // using bcrypt to find the hash and if it matches with the entered password then hash is assigned to the password,replacing the entered password if it is true
+            bcrypt.compare(password, user.password, function(err, res) {
+                if(res){
+                    return done(null,user);
+                }
+                else{
+                    console.log("Invalid Username/Password");
+                    return done(null,false);
+                }
+            });
+           
         })
     }
 ));
