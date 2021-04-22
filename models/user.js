@@ -12,6 +12,10 @@ const userSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    avatar: {
+        type: String,
+        default: '/upload/avatar/default-user-avatar.png'
     }
 },{
     timestamps: true

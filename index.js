@@ -13,6 +13,7 @@ const port = 8080;
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('./assets'));
 app.use(expressLayouts);
+app.use('/upload', express.static(__dirname+'/upload'));
 // styles and script for each ejs files
 app.set('layout extractStyles',true);
 app.set('layout extractScripts',true);

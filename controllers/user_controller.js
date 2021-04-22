@@ -46,7 +46,14 @@ module.exports.create = (req,res)=>{
 }
 
 module.exports.userProfile = (req,res) =>{
-    res.render('user_profile',{title: 'Profile'});
+    // res.render('user_profile',{title: 'Profile'});
+    User.findById(req.params.id,(err,user)=>{
+        if(err){
+            console.log('Error in finding the user profile ',err)
+            return res.redirect('back');
+        }
+        return res.render('user_profile',{title: 'Profile',  profile_user: user});
+    })
 }
 
 module.exports.createSession = (req,res)=>{
