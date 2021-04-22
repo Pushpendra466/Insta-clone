@@ -1,5 +1,18 @@
+<link rel="stylesheet" href="/css/profile.css">
+<div id="profile-details-container">
 <% if(locals.user) {%>
+
+<div>
 <img src="<%= profile_user.avatar%>" height="200px" width="200px">
+</div>
+<div>
 <h3><%= profile_user.name %></h3>
 <h3><%= profile_user.email %></h3>
+</div>
+<div>
+<% if(locals.user.id == profile_user.id) {%>
+    <i class="fas fa-user-edit"></i>
 <%}%>
+</div>
+<%}%>
+</div>

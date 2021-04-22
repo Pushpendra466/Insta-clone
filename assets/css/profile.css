@@ -1,0 +1,11 @@
+#profile-details-container {
+  margin: 0 auto;
+  padding-top: 50px;
+  width: 70vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+/*# sourceMappingURL=profile.css.map */
