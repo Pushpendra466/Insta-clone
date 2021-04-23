@@ -12,5 +12,7 @@ router.post('/create-session',
 passport.authenticate('local',{failureRedirect: '/users/sign-in'}),
 userController.createSession);
 router.get('/profile/:id',passport.checkAuthentication,userController.userProfile);
+router.get('/profile-edit/:id',passport.checkAuthentication,userController.profileEdit);
+router.post('/update-profile/:id',passport.checkAuthentication,userController.submitProfileEdit)
 
 module.exports = router;

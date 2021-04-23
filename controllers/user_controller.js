@@ -56,6 +56,26 @@ module.exports.userProfile = (req,res) =>{
     })
 }
 
+module.exports.profileEdit = (req,res)=> {
+    if(req.params.id == req.user._id){
+        return res.render('profile_edit',{title: 'Edit Profile'});
+    }
+    return res.redirect('back');
+}
+
+module.exports.submitProfileEdit = (req,res)=>{
+    if(req.params.id == req.user._id){
+        User.findByIdAndUpdate(req.user._id,req.body,(err,docs)=>{
+            if(err){
+                console.log('Error',err);
+                return res.redirect('back');
+            }
+            console.log(docs);
+            return res.redirect(`/users/profile/${req.user._id}`);
+        })
+    }
+}
+
 module.exports.createSession = (req,res)=>{
     return res.redirect('/');
 }

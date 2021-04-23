@@ -1,0 +1,26 @@
+<div>
+    <form action="/users/update-profile/<%=locals.user.id%>" method="POST">
+
+        <span>Name </span><input type="text" value="<%=locals.user.name%>" name="name"><br>
+        <span>Gender </span><select id="gender" value="Female" name="gender">
+            <% if(locals.user.gender== 'Male') {%>
+            <option value="Male" selected>Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">other</option>
+            <%}%>
+            <% if(locals.user.gender== 'Female') {%>
+                <option value="Male" >Male</option>
+                <option value="Female" selected>Female</option>
+                <option value="Other">other</option>
+            <%}%>
+            <% if(locals.user.gender== 'Other') {%>
+                <option value="Male" >Male</option>
+                <option value="Female" >Female</option>
+                <option value="Other" selected>other</option>
+            <%}%>
+        </select><br>
+        <span>Date of birth </span><input type="date" name="dateOfBirth" value="<%=locals.user.dateOfBirth%>"><br>
+        <span>Bio </span><textarea name="bio"><%=locals.user.bio%></textarea>
+        <input type="submit" value="Submit">
+    </form>
+</div>

@@ -11,7 +11,7 @@
 </div>
 <div>
 <% if(locals.user.id == profile_user.id) {%>
-    <i class="fas fa-user-edit"></i>
+    <a href="/users/profile-edit/<%=locals.user.id%>">Edit &nbsp;<i class="fas fa-user-edit"></i></a>
 <%}%>
 </div>
 <%}%>

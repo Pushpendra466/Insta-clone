@@ -16,6 +16,15 @@ const userSchema = mongoose.Schema({
     avatar: {
         type: String,
         default: '/upload/avatar/default-user-avatar.png'
+    },
+    gender: {
+        type: String,
+    },
+    bio: {
+        type: String
+    },
+    dateOfBirth: {
+        type: String
     }
 },{
     timestamps: true
