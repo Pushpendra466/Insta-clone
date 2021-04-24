@@ -4,7 +4,7 @@
     <form action="/users/update-profile/<%=locals.user.id%>" enctype="multipart/form-data" method="POST">
         <div class="between"> <input type="file" name="avatar" placeholder="Profile Picture" accept="image/*"></div>
         <div class="space-between"><span>Name </span><input type="text" value="<%=locals.user.name%>" name="name"></div>
-        <div class="space-between"><span>Gender </span><select id="gender" value="Female" name="gender">
+        <div class="space-between"><span>Gender </span><select id="gender" name="gender">
             <% if(locals.user.gender== 'Male') {%>
             <option value="Male" selected>Male</option>
             <option value="Female">Female</option>
@@ -19,6 +19,11 @@
                 <option value="Male" >Male</option>
                 <option value="Female" >Female</option>
                 <option value="Other" selected>other</option>
+            <%}%>
+            <% if(!locals.user.gender) {%>
+                <option value="Male" >Male</option>
+                <option value="Female" >Female</option>
+                <option value="Other" >other</option>
             <%}%>
         </select></div>
         <div class="space-between"><span>Date of birth </span><input type="date" name="dateOfBirth" value="<%=locals.user.dateOfBirth%>"></div><br>

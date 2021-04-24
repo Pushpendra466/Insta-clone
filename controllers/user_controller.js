@@ -26,9 +26,15 @@ module.exports.create = (req,res)=>{
         }
         if(!user){
             bcrypt.genSalt(10, function(err, salt) {
+                if(err){
+                    console.log('Error in genrating salt bycrypt',err);
+                    return res.redirect('back');
+                }
                 bcrypt.hash(req.body.password, salt, function(err, hash) {
-                    console.log(hash);
-                   
+                    if(err){
+                        console.log('Error in genrating hash bycrypt',err);
+                        return res.redirect('back');
+                    }
                     User.create({name: req.body.name,email: req.body.email, password: hash},(err,user)=>{
                         if(err){
                             console.log("Error in creating the new user ",err);
@@ -83,7 +89,8 @@ module.exports.submitProfileEdit = async (req,res)=>{
                 }
                 user.name = req.body.name;
                 user.dateOfBirth = req.body.dateOfBirth;
-                user.gener = req.body.gender;
+                user.gender = req.body.gender;
+                user.bio = req.body.bio;
                 if(req.file){
                     if(user.avatar != '/upload/avatar/default-user-avatar.png'){
                         fs.unlinkSync(path.join(__dirname,'..',user.avatar));
