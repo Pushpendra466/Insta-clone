@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="/css/profile_edit.css">
 <div id="edit-details-container">
-    <form action="/users/update-profile/<%=locals.user.id%>" method="POST">
+    <div id="img-conatiner"><img src="<%= locals.user.avatar %>"></div>
+    <form action="/users/update-profile/<%=locals.user.id%>" enctype="multipart/form-data" method="POST">
+        <div class="between"> <input type="file" name="avatar" placeholder="Profile Picture" accept="image/*"></div>
         <div class="space-between"><span>Name </span><input type="text" value="<%=locals.user.name%>" name="name"></div>
         <div class="space-between"><span>Gender </span><select id="gender" value="Female" name="gender">
             <% if(locals.user.gender== 'Male') {%>

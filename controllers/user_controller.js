@@ -1,5 +1,7 @@
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
+const fs = require('fs');
+const path = require('path');
 
 module.exports.signIn = (req,res)=> {
     return res.render('sign-in',{title:'Sign In'});
@@ -63,16 +65,42 @@ module.exports.profileEdit = (req,res)=> {
     return res.redirect('back');
 }
 
-module.exports.submitProfileEdit = (req,res)=>{
+module.exports.submitProfileEdit = async (req,res)=>{
     if(req.params.id == req.user._id){
-        User.findByIdAndUpdate(req.user._id,req.body,(err,docs)=>{
-            if(err){
-                console.log('Error',err);
-                return res.redirect('back');
-            }
-            console.log(docs);
-            return res.redirect(`/users/profile/${req.user._id}`);
-        })
+        // User.findByIdAndUpdate(req.user._id,req.body,(err,docs)=>{
+        //     if(err){
+        //         console.log('Error',err);
+        //         return res.redirect('back');
+        //     }
+        //     console.log(docs);
+        //     return res.redirect(`/users/profile/${req.user._id}`);
+        // })
+        try{
+            let user = await User.findById(req.user._id);
+            User.uploadedAvatar(req,res, (err)=>{
+                if(err){
+                    console.log('********* Multer Error *******',err);
+                }
+                user.name = req.body.name;
+                user.dateOfBirth = req.body.dateOfBirth;
+                user.gener = req.body.gender;
+                if(req.file){
+                    if(user.avatar != '/upload/avatar/default-user-avatar.png'){
+                        fs.unlinkSync(path.join(__dirname,'..',user.avatar));
+                    }
+
+                    // this is saving the path of uploaded file into the avatar field in the user
+                    user.avatar = User.avatarPath + '/' + req.file.filename;
+                }
+                user.save();
+                return res.redirect(`/users/profile/${req.user._id}`);
+            });
+
+        }catch(err){
+            console.log('Error',err);
+            return res.redirect('back');
+        }
+       
     }
 }
 

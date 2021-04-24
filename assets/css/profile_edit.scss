@@ -1,11 +1,19 @@
 #edit-details-container{
+    width: 30vw;
+    font-size: 1.2rem;
+    margin: 10vh auto;
+    border: 0.5px solid lightgray;
+    padding: 25px;
+    img{
+        height: 150px;
+        width: 150px;
+    }
+    #img-conatiner{
+        display: flex;
+        justify-content: center;
+    }
     form{
-        width: 30vw;
-        font-size: 1.2rem;
-        line-height: 1.5rem;
-        margin: 10vh auto;
-        border: 0.5px solid lightgray;
-        padding: 25px;
+  
         input,textarea,select{
             width: 250px;
             font-size: 1.2rem;
@@ -17,12 +25,15 @@
             justify-content: space-evenly;
         }
     }
-    
-  
 }
 .space-between{
     margin-bottom: 12px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+.between{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
 }

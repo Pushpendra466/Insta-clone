@@ -1,10 +1,23 @@
-#edit-details-container form {
+#edit-details-container {
   width: 30vw;
   font-size: 1.2rem;
-  line-height: 1.5rem;
   margin: 10vh auto;
   border: 0.5px solid lightgray;
   padding: 25px;
+}
+
+#edit-details-container img {
+  height: 150px;
+  width: 150px;
+}
+
+#edit-details-container #img-conatiner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #edit-details-container form input, #edit-details-container form textarea, #edit-details-container form select {
@@ -33,5 +46,15 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.between {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px;
 }
 /*# sourceMappingURL=profile_edit.css.map */
