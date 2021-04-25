@@ -11,6 +11,12 @@
   border-bottom: 0.5px solid lightgray;
 }
 
+#profile-details-container #profile-img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+
 .space-between {
   font-size: 1.2rem;
   width: 30vw;

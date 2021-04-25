@@ -1,0 +1,26 @@
+#container{
+    width: 35vw;
+    padding: 25px;
+    margin: 10vh auto;
+    font-size: 1.2rem;
+    border: 0.5px solid lightgray;
+    h3{
+        text-align: center;
+    }
+    form{
+        input,textarea{
+            font-size: 1.2rem;
+        }
+    }
+}
+.space-between{
+    margin-bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.between{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}

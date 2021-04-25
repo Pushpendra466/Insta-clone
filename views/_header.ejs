@@ -4,11 +4,12 @@
         <li><img src="/images/insta_logo.png" alt="logo"> </li>
         <li class="search-box"><input type="search" placeholder="search"><i class="fas fa-search"></i></li>
         <li>
-            <i class="fas fa-home"></i>
+            <a href="/"><i class="fas fa-home"></i></a>
             <i class="fab fa-facebook-messenger"></i>
             <i class="fas fa-compass"></i>
             <i class="fas fa-heart"></i>
             <% if(locals.user) {%>
+            <a href="/posts/new-post"><i class="fas fa-plus-square"></i></a>
             <a href="/users/profile/<%=locals.user.id%>"><i class="fas fa-user"></i></a>
             <a href="/users/sign-out"><i class="fas fa-sign-out-alt"></i></a>
             <%}%>

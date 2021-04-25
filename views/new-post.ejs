@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="/css/new_post.css">
+<div id="container">
+    <h3>New Post</h3>
+    <form enctype="multipart/form-data" method="POST" action="/posts/create">
+    <div class="space-between"><span>Image</span><input type="file" accept="image/*" name="postImage" required></div>
+    <div class="space-between"><span>Caption</span><textarea name="caption"></textarea></div>
+    <div class="space-between"><span>Location</span><input type="text" name="location"></div>
+    <div class="between"><input type="submit" value="Post" id="btn"></div>
+    </form>
+</div>
