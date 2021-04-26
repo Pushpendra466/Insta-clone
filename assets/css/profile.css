@@ -12,12 +12,13 @@
 }
 
 #profile-details-container #profile-img {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
 }
 
 .space-between {
+  padding-top: 15px;
   font-size: 1.2rem;
   width: 30vw;
   display: -webkit-box;
@@ -30,5 +31,10 @@
 
 .bio {
   font-size: 1.1rem;
+  padding-top: 15px;
+}
+
+h3 {
+  padding-top: 15px;
 }
 /*# sourceMappingURL=profile.css.map */
