@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/profile.css">
-<div id="profile-details-container">
+<div id="container">
 <% if(locals.user) {%>
-
+<div id="profile-details-container">
 <div>
 <img src="<%= profile_user.avatar%>"  id="profile-img">
 </div>
@@ -20,6 +20,16 @@
 <div>
 <% if(locals.user.id == profile_user.id) {%>
     <a href="/users/profile-edit/<%=locals.user.id%>">Edit &nbsp;<i class="fas fa-user-edit"></i></a>
+<%}%>
+</div>
+
+</div>
+<h3 style="text-align: center;"><i class="fas fa-th"></i>&nbsp;POSTS</h3>
+<div id="user-posts"> 
+<% for(post of profile_posts) {%>
+<div>
+<img src="<%= post.image_path %>">
+</div>
 <%}%>
 </div>
 <%}%>

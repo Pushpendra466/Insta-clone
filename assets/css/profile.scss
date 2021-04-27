@@ -1,7 +1,8 @@
-#profile-details-container{
+#container{
     margin: 0 auto;
-    padding-top: 50px;
     width: 70vw;
+#profile-details-container{
+    padding-top: 50px;
     display: flex;
     justify-content: space-around;
     padding-bottom: 20px;
@@ -11,6 +12,19 @@
         width: 150px;
         border-radius: 50%;
     }
+}
+#user-posts {
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+    div{
+        padding: 5px;
+    }
+    img{
+        width: 300px;
+        height: 300px;
+    }
+}
 }
 .space-between{
     padding-top: 15px;
