@@ -1,9 +1,13 @@
 #container {
   margin: 0 auto;
-  width: 602px;
+  width: 70vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #container #card-container {
+  width: 45vw;
   border: 0.5px solid lightgray;
   margin-bottom: 50px;
   font-size: 1.2rem;
@@ -45,7 +49,7 @@
 
 #container #card-container #post-pic {
   height: 750px;
-  width: 600px;
+  width: 45vw;
 }
 
 #container #card-container #bottom {
@@ -65,5 +69,54 @@
 
 #container #card-container #post-details {
   padding: 10px;
+}
+
+#container #right-panel {
+  position: fixed;
+  right: 10vw;
+  width: 300px;
+}
+
+#container #right-panel #user-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#container #right-panel #user-details a {
+  text-decoration: none;
+  color: black;
+}
+
+#container #right-panel #user-pic {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 0.5px solid lightgray;
+}
+
+#container #right-panel #suggestion #newUsers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+#container #right-panel #suggestion #newUsers a {
+  text-decoration: none;
+  color: black;
+}
+
+#container #right-panel #suggestion #newUsers #newUser-pic {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 0.5px solid lightgray;
 }
 /*# sourceMappingURL=home.css.map */
