@@ -1,0 +1,36 @@
+<div id="card-container">
+    <div id="top">
+    <div id="user-detail">
+    <a href="/users/profile/<%= post.user._id%>"><img src="<%= post.user.avatar %>" id="profile-pic"></a>&emsp;
+    <div>&nbsp;&nbsp;
+    <b><a href="/users/profile/<%= post.user._id%>"><%= post.user.name %></a></b><br>
+    <% if(post.location) {%>
+    <small>
+    <i class="fas fa-map-marker-alt"></i>
+    <%= post.location %>
+    </small>
+    <%}%>
+    </div>
+    </div>
+    <div><b><i class="fas fa-ellipsis-h"></i></b></div>
+    </div>
+    <div id="img-container">
+    <img src="<%= post.image_path%>" id="post-pic">
+    </div>
+    <div id="bottom">
+    <div>
+    <i class="far fa-heart"></i>
+    <i class="far fa-comment"></i>
+    <i class="far fa-paper-plane"></i>
+    </div>
+    <div>
+    <i class="far fa-bookmark"></i>
+    </div>
+    </div>
+    <div id="post-details">
+    <b><a href="/users/profile/<%= post.user._id%>"><%= post.user.name %></a></b> &nbsp;
+    <% if(post.caption) {%>
+    <%= post.caption %>
+    <%}%>
+    </div>
+    </div>
