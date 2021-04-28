@@ -2,9 +2,10 @@
     margin: 0 auto;
     width: 70vw;
     display: flex;
-
+    
     #card-container{
         width: 45vw;
+       
         a{
             text-decoration: none;
             color: black;
@@ -87,4 +88,17 @@
                     }
         }
     }
+}
+
+#post-options{
+    position: absolute;
+    text-align: center;
+    background-color: #fff;
+    border: 0.5px solid lightgray;
+    border-radius: 5px;
+    width: 45vw;
+    
+}
+.pa-b{
+    padding: 5px;
 }

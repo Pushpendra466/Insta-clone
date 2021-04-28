@@ -3,7 +3,7 @@
     <div id="user-detail">
     <a href="/users/profile/<%= post.user._id%>"><img src="<%= post.user.avatar %>" id="profile-pic"></a>&emsp;
     <div>&nbsp;&nbsp;
-    <b><a href="/users/profile/<%= post.user._id%>"><%= post.user.name %></a></b><br>
+    <b><a href="/users/profile/<%= post.user._id%>"><%= post.user.name %></a></b></p>
     <% if(post.location) {%>
     <small>
     <i class="fas fa-map-marker-alt"></i>
@@ -15,6 +15,17 @@
     <div><b><i class="fas fa-ellipsis-h"></i></b></div>
     </div>
     <div id="img-container">
+        <div id="post-options">
+            <% if(post.user._id == locals.user.id) {%>
+                <p class="pa-b"><a>Edit</a></p><hr>
+                <p class="pa-b"><a>Delete</a></p><hr>
+                <p class="pa-b"><a>Cancel</a></p>
+            <%}%>
+            <% if(post.user._id != locals.user.id) {%>
+                <p class="pa-b"><a>Follow/Unfollow</a></p><hr>
+                <p class="pa-b"><a>Cancel</a></p>
+            <%}%>
+            </div>
     <img src="<%= post.image_path%>" id="post-pic">
     </div>
     <div id="bottom">
@@ -34,3 +45,5 @@
     <%}%>
     </div>
     </div>
+
+    

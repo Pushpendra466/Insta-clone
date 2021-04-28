@@ -1,0 +1,22 @@
+<div id="right-panel">
+
+    <div id="user-details">
+    <a href="/users/profile/<%= locals.user.id%>"><img src="<%= locals.user.avatar%>" id="user-pic"></a>&emsp;
+    <div>
+    <b><a href="/users/profile/<%= locals.user.id%>"><%= locals.user.name %></a></b><br>
+    <b style="color: gray;"><%= locals.user.email %></b>
+    </div>
+    </div>
+    
+    <br>
+    <div id="suggestion">
+    <p style="color: gray;">New Users</p>
+    <br>
+    <% for(newUser of newUsers) {%>
+    <div id="newUsers">        
+    <div><a href="/users/profile/<%=newUser._id%>"><img src="<%= newUser.avatar%>" id="newUser-pic"></a>&emsp;</div>
+    <div><b><a href="/users/profile/<%=newUser._id%>"><%= newUser.name %></a></b></div>
+    </div>     
+    <%}%>
+    </div>
+    </div>
