@@ -35,3 +35,23 @@ module.exports.createPost = async (req,res) =>{
     }
     
 }
+
+// To delete the post
+module.exports.destroy = async (req,res)=>{
+    try{
+        let post = await Post.findById(req.params.id);
+        if(post.user == req.user.id){
+            // deleting the post image before deleting the post
+            if(post.image_path){
+                fs.unlinkSync(path.join(__dirname,'..',post.image_path));
+            }
+            post.remove();
+        }
+        return res.redirect('back');
+        
+    }catch(err){
+        console.log(err);
+        return res.redirect('back');
+    }
+    
+}

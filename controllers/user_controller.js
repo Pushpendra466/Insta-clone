@@ -57,7 +57,7 @@ module.exports.create = (req,res)=>{
 module.exports.userProfile =async (req,res) =>{
     try{
         let user = await User.findById(req.params.id);
-        let posts = await Post.find({'user': user._id});
+        let posts = await Post.find({'user': user._id}).sort('-createdAt');
         return res.render('user_profile',{title: 'Profile',  profile_user: user, profile_posts: posts});
     }catch(err){
         console.log(err);
