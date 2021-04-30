@@ -75,3 +75,14 @@ module.exports.edit = async (req,res)=>{
         return res.redirect('back');
     }
 }
+
+module.exports.postDetails = async (req,res)=> {
+    try{
+        let post = await await Post.findById(req.params.id).populate('user');
+        return res.render('post_details',{title: 'post Detail',post: post})
+
+    }catch(err){
+        console.log(err);
+        return res.redirect('back');
+    }
+}

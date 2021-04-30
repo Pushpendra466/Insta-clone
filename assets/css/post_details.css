@@ -1,0 +1,54 @@
+#container {
+  width: 60vw;
+  margin: 0 auto;
+  border: 0.5px solid lightgray;
+  font-size: 1.2rem;
+}
+
+#container #post-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#container #post-container #post-img {
+  width: 40vw;
+}
+
+#container #post-container #details {
+  padding-left: 10px;
+}
+
+#container #post-container #details #avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+#container #post-container #details #user-details {
+  width: 18vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 0.5px solid lightgray;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+#container #post-container #details #user-details a {
+  text-decoration: none;
+  color: black;
+}
+
+.name {
+  font-size: 1.2rem;
+}
+
+.location {
+  color: gray;
+  font-size: 0.9rem;
+}
+/*# sourceMappingURL=post_details.css.map */

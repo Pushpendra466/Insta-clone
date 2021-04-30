@@ -1,0 +1,42 @@
+#container{
+    width: 60vw;
+    margin: 0 auto;
+    border: 0.5px solid lightgray;
+    font-size: 1.2rem;
+    #post-container{
+        display: flex;
+        #post-img{
+            width: 40vw;
+        }
+        
+        #details{
+            padding-left: 10px;
+            
+            #avatar{
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+            }
+            #user-details{
+                width: 18vw;
+                display: flex;
+                align-items: center;
+                border-bottom: 0.5px solid lightgray;
+                padding-top: 10px;
+                padding-bottom: 5px;
+                a{
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+.name{
+    font-size: 1.2rem;
+}
+.location{
+    color: gray;
+    font-size: 0.9rem;
+}

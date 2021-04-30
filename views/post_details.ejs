@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/css/post_details.css">
+<div id="container">
+<div id="post-container">
+<img src="<%= post.image_path %>" id="post-img">
+
+<div id="details">
+
+    <div id="user-details">
+   <div>
+       <a href="/users/profile/<%= post.user._id %>">
+    <img src="<%= post.user.avatar%>" alt="profile-pic" id="avatar"> </a>
+   </div>
+<div>
+    &emsp;<a href="/users/profile/<%= post.user._id %>"><span class="name"><%= post.user.name %></span></a><br>
+    <% if(post.location){%>
+    <span class="location"><i class="fas fa-map-marker-alt"></i>&nbsp;<%=post.location%></span>
+<%}%>
+</div>
+</div>
+
+<br>
+<br>
+<span>
+    <% if(post.caption){%>
+    <%= post.caption %>
+    <%}%></span>
+
+</div>
+
+</div>
+</div>

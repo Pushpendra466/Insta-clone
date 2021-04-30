@@ -28,7 +28,9 @@
 <div id="user-posts"> 
 <% for(post of profile_posts) {%>
 <div>
-<img src="<%= post.image_path %>">
+<a href="/posts/post-details/<%=post._id%>">
+    <img src="<%= post.image_path %>">
+</a>
 </div>
 <%}%>
 </div>
