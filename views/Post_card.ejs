@@ -17,7 +17,7 @@
     <div id="img-container">
         <div id="post-options">
             <% if(post.user._id == locals.user.id) {%>
-                <p class="pa-b"><a>Edit</a></p><hr>
+                <p class="pa-b"><a href="/posts/edit-post-form/<%= post._id%>">Edit</a></p><hr>
                 <p class="pa-b"><a href="/posts/destroy/<%= post._id %>">Delete</a></p><hr>
                 <p class="pa-b" id="close-opt"><a>Cancel</a></p>
             <%}%>

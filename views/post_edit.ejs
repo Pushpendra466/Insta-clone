@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="/css/post_edit.css">
+<div id="container">
+    <h3>Edit Post</h3>
+    <img src="<%= post.image_path %>" alt="post-image" id="post-img">
+    <form action="/posts/edit/<%= post._id %>" method="POST">
+        <div id="edit-caption"><span>Caption</span>&emsp;<textarea name="caption"><% if(post.caption){%><%=post.caption%><%}%></textarea></div><br>
+        <div id="update-btn"><input type="submit" value="Update" ></div>
+    </form>
+</div>

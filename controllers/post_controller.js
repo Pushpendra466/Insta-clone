@@ -55,3 +55,23 @@ module.exports.destroy = async (req,res)=>{
     }
     
 }
+
+module.exports.editForm = async (req,res)=>{
+    let post = await Post.findById(req.params.id);
+    return res.render('post_edit',{title: 'Edit Post',post: post});
+}
+
+module.exports.edit = async (req,res)=>{
+    try{
+        let post = await Post.findById(req.params.id);
+        // Without converting post.user and req.user._id is giving false even it is same
+        if(String(post.user) == String(req.user._id)){
+            post.caption = req.body.caption;
+            post.save();
+        }
+        return res.redirect('/');
+    }catch(err){
+        console.log(err);
+        return res.redirect('back');
+    }
+}
