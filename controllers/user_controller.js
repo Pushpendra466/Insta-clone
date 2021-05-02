@@ -56,9 +56,11 @@ module.exports.create = (req,res)=>{
 
 module.exports.userProfile =async (req,res) =>{
     try{
-        let user = await User.findById(req.params.id);
+        let profileUser = await User.findById(req.params.id);
+        let user = await User.findById(req.user._id);
         let posts = await Post.find({'user': user._id}).sort('-createdAt');
-        return res.render('user_profile',{title: 'Profile',  profile_user: user, profile_posts: posts});
+        let isFollowed = user.followings.includes(req.params.id); 
+        return res.render('user_profile',{title: 'Profile',  profile_user: profileUser, profile_posts: posts ,isFollowed: isFollowed});
     }catch(err){
         console.log(err);
         return res.redirect('back');
@@ -119,4 +121,62 @@ module.exports.createSession = (req,res)=>{
 module.exports.destroySession = (req,res)=>{
     req.logout();
     return res.redirect('/');
+}
+
+// To follow any user
+module.exports.follow = async (req,res) =>{
+    try{
+        let user = await User.findById(req.user._id);
+        let followUser = await User.findById(req.params.id);
+
+        if(user._id != followUser._id)
+        {
+            let isFollowed = user.followings.includes(followUser._id);
+            let isFollower = followUser.followers.includes(user._id);
+            if(!isFollowed && !isFollower)
+       { user.followings.push(followUser._id);
+        followUser.followers.push(user._id);
+        user.save();
+        followUser.save();
+        }
+        }
+        return res.redirect('back');
+    }catch(err){
+        console.log('Error in Follow in userController.js ',err)
+        return res.redirect('back');
+    }
+
+}
+
+// To unfollow any user
+module.exports.unfollow = async (req,res) =>{
+    try{
+        let user = await User.findById(req.user._id);
+        let unFollowUser = await User.findById(req.params.id);
+        if(user._id != unFollowUser._id)
+        {
+            let isFollowed = user.followings.includes(unFollowUser._id);
+            let isFollower = unFollowUser.followers.includes(user._id);
+            console.log(isFollowed,isFollower)
+            if(isFollowed && isFollower)
+       { 
+           let followings = user.followings.filter(function(following){
+               console.log(following._id,unFollowUser._id,'1st')
+              return String(following._id) != String(unFollowUser._id);
+           });
+           
+           user.followings = followings;
+           let followers = unFollowUser.followers.filter((follower)=>{
+            return  String(follower._id) != String(user._id);
+           });
+           unFollowUser.followers = followers;
+           console.log(followings,followers)
+        user.save();
+        unFollowUser.save();
+        }
+        }
+        return res.redirect('back');
+    }catch(err){
+        console.log('Error in unfollow userController.js ',err)
+    }
 }

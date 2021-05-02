@@ -9,8 +9,8 @@
 <h3><%= profile_user.name %></h3>
 <div class="space-between">
 <div><b><%= profile_posts.length %></b> posts</div>
-<div><b>115</b> followers</div> 
-<div><b>96</b> following</div>
+<div><b><%= profile_user.followers.length %></b> followers</div> 
+<div><b><%= profile_user.followings.length %> </b> following</div>
 </div>
 <h3><%= profile_user.email %></h3>
 <div class="bio">
@@ -21,6 +21,14 @@
 <% if(locals.user.id == profile_user.id) {%>
     <a href="/users/profile-edit/<%=locals.user.id%>">Edit &nbsp;<i class="fas fa-user-edit"></i></a>
 <%}%>
+<% if(locals.user.id != profile_user.id) {%>
+    <% if(isFollowed) {%>
+        <a href="/users/unfollow/<%=profile_user.id%>">Unfollow</a>
+    <%}%>
+    <% if(!isFollowed) {%>
+        <a href="/users/follow/<%=profile_user.id%>">Follow</a>
+    <%}%>
+    <%}%>
 </div>
 
 </div>
