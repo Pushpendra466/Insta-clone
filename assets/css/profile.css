@@ -14,6 +14,11 @@
   border-bottom: 0.5px solid lightgray;
 }
 
+#container #profile-details-container a {
+  text-decoration: none;
+  color: black;
+}
+
 #container #profile-details-container #profile-img {
   height: 150px;
   width: 150px;

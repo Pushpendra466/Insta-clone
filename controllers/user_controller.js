@@ -58,7 +58,7 @@ module.exports.userProfile =async (req,res) =>{
     try{
         let profileUser = await User.findById(req.params.id);
         let user = await User.findById(req.user._id);
-        let posts = await Post.find({'user': user._id}).sort('-createdAt');
+        let posts = await Post.find({'user': profileUser._id}).sort('-createdAt');
         let isFollowed = user.followings.includes(req.params.id); 
         return res.render('user_profile',{title: 'Profile',  profile_user: profileUser, profile_posts: posts ,isFollowed: isFollowed});
     }catch(err){
@@ -157,7 +157,6 @@ module.exports.unfollow = async (req,res) =>{
         {
             let isFollowed = user.followings.includes(unFollowUser._id);
             let isFollower = unFollowUser.followers.includes(user._id);
-            console.log(isFollowed,isFollower)
             if(isFollowed && isFollower)
        { 
            let followings = user.followings.filter(function(following){
@@ -170,7 +169,7 @@ module.exports.unfollow = async (req,res) =>{
             return  String(follower._id) != String(user._id);
            });
            unFollowUser.followers = followers;
-           console.log(followings,followers)
+       
         user.save();
         unFollowUser.save();
         }
@@ -178,5 +177,33 @@ module.exports.unfollow = async (req,res) =>{
         return res.redirect('back');
     }catch(err){
         console.log('Error in unfollow userController.js ',err)
+    }
+}
+
+module.exports.followings = async (req,res) =>{
+
+    try{
+        let profileUser = await User.findById(req.params.id).
+        populate('followings',['name','avatar']);
+        let profileFollowings = profileUser.followings;
+
+        console.log(profileFollowings)
+        return res.render('followings',{title: 'followings', followings: profileFollowings})
+       
+    }catch(err){
+        console.log('Error in followings userController.js ',err);
+        return res.redirect('back');
+    }
+}
+module.exports.followers = async (req,res) =>{
+
+    try{
+        let profileUser = await User.findById(req.params.id)
+        .populate('followers',['name','avatar']);
+        let profileFollowers = profileUser.followers;
+        return res.render('followers',{title: 'followers', followers: profileFollowers});
+    }catch(err){
+        console.log('Error in followers userController.js ',err);
+        return res.redirect('back');
     }
 }

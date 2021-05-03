@@ -9,8 +9,8 @@
 <h3><%= profile_user.name %></h3>
 <div class="space-between">
 <div><b><%= profile_posts.length %></b> posts</div>
-<div><b><%= profile_user.followers.length %></b> followers</div> 
-<div><b><%= profile_user.followings.length %> </b> following</div>
+<div><a href="/users/followers/<%= profile_user.id%>"><b><%= profile_user.followers.length %></b> followers</a></div> 
+<div><a href="/users/followings/<%= profile_user.id%>"><b><%= profile_user.followings.length %> </b> following</a></div>
 </div>
 <h3><%= profile_user.email %></h3>
 <div class="bio">

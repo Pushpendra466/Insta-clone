@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="/css/followings.css">
+<div id="main">
+    <h3>Followings</h3><br>
+<div id="container">
+    <% for(following of followings) {%>
+        <div id="details">
+            <a href="/users/profile/<%= following.id%>"><img id="profile-img" src=<%= following.avatar %>></a>
+            &emsp;<a href="/users/profile/<%= following.id%>"><span><%= following.name %></span></a>
+        </div>
+    <%}%>
+</div>
+</div>

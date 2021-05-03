@@ -16,6 +16,8 @@ router.get('/profile-edit/:id',passport.checkAuthentication,userController.profi
 router.post('/update-profile/:id',passport.checkAuthentication,userController.submitProfileEdit);
 router.get('/follow/:id',passport.checkAuthentication,userController.follow);
 router.get('/unfollow/:id',passport.checkAuthentication,userController.unfollow);
+router.get('/followings/:id',passport.checkAuthentication,userController.followings);
+router.get('/followers/:id',passport.checkAuthentication,userController.followers);
 
 
 module.exports = router;

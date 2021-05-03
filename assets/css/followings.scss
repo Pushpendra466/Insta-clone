@@ -1,0 +1,35 @@
+#main{
+    margin: 0 auto;
+    width: 350px;
+    h3{
+        text-align: center;
+    }
+    #container{
+        height: 75vh;
+        overflow-y: scroll;
+        padding: 10px;
+        border-radius: 5px;
+        border: 0.5px solid lightgray;
+        #profile-img{
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+        #details{
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            border-bottom: 0.5px solid lightgray;
+            a{
+                text-decoration: none;
+                color: black;
+            }
+        }
+    }
+
+}
+
+#container::-webkit-scrollbar {
+    display: none;
+  }
