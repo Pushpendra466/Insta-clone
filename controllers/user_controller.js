@@ -186,8 +186,6 @@ module.exports.followings = async (req,res) =>{
         let profileUser = await User.findById(req.params.id).
         populate('followings',['name','avatar']);
         let profileFollowings = profileUser.followings;
-
-        console.log(profileFollowings)
         return res.render('followings',{title: 'followings', followings: profileFollowings})
        
     }catch(err){
