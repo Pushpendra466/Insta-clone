@@ -30,7 +30,13 @@
     </div>
     <div id="bottom">
     <div>
-    <i class="far fa-heart"></i>
+    <a href="/posts/like/<%= post._id %>">
+        <% if(post.likes.includes(locals.user._id)){%>
+            <i class="fas fa-heart"  style="color: red;"></i>
+        <%}else{%> 
+            <i class="far fa-heart"></i>
+        <%}%>
+    </a>
     <i class="far fa-comment"></i>
     <i class="far fa-paper-plane"></i>
     </div>
@@ -38,6 +44,7 @@
     <i class="far fa-bookmark"></i>
     </div>
     </div>
+    <div style="padding-left: 10px;"><%= post.likes.length %> Likes</div>
     <div id="post-details">
     <b><a href="/users/profile/<%= post.user._id%>"><%= post.user.name %></a></b> &nbsp;
     <% if(post.caption) {%>

@@ -6,7 +6,8 @@ module.exports.index = async (req,res)=>{
     //    All posts soretd by time at which created at
     let posts = await Post.find({})
     .sort('-createdAt')
-    .populate('user');
+    .populate('user',['name','id','avatar']);
+    
     // To get 5 new users
     let users =await User.find({}).sort('-createdAt').limit(5);
     return res.render('home',{title:'home',posts: posts, newUsers: users});

@@ -78,9 +78,28 @@ module.exports.edit = async (req,res)=>{
 
 module.exports.postDetails = async (req,res)=> {
     try{
-        let post = await await Post.findById(req.params.id).populate('user');
+        let post =  await Post.findById(req.params.id).populate('user');
         return res.render('post_details',{title: 'post Detail',post: post})
 
+    }catch(err){
+        console.log(err);
+        return res.redirect('back');
+    }
+}
+
+module.exports.likePost = async (req,res)=>{
+    try{
+        let post = await Post.findById(req.params.id);
+        let toggleLike = post.likes.includes(req.user._id);
+        if(toggleLike){
+            post.likes.pull(req.user._id);
+            post.save();
+            return res.redirect('back')
+        }else{
+            post.likes.push(req.user._id);
+            post.save();
+            return res.redirect('back')
+        }
     }catch(err){
         console.log(err);
         return res.redirect('back');
