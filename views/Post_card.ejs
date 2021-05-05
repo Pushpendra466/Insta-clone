@@ -44,7 +44,7 @@
     <i class="far fa-bookmark"></i>
     </div>
     </div>
-    <div style="padding-left: 10px;" ><span id=<%= post._id %>><%= post.likes.length %></span> Likes</div>
+    <div style="padding-left: 10px;" ><a href="/posts/total-likes/<%= post._id%>"><span id=<%= post._id %>><%= post.likes.length %></span> Likes</div></a>
     <div id="post-details">
     <b><a href="/users/profile/<%= post.user._id%>"><%= post.user.name %></a></b> &nbsp;
     <% if(post.caption) {%>

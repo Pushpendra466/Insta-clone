@@ -131,3 +131,15 @@ module.exports.likePost = async (req,res)=>{
         return res.redirect('back');
     }
 }
+
+
+module.exports.totalLikes = async(req,res)=>{
+    try{
+        let post = await Post.findById(req.params.id)
+        .populate('likes',['name','avatar','_id']);
+        return res.render('total_likes',{title:'Likes',users: post.likes});
+    }catch(err){
+        console.log('Error in Total Likes controller ',err);
+        return res.redirect('back');
+    }
+}

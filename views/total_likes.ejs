@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/css/total_likes.css">
+
+<div id="container">
+<div id="main">
+<h3>Liked By</h3>
+<div id="users-list">
+<% for(user of users) {%>
+    <div id="user-details">
+        <a href="/users/profile/<%=user._id%>">
+        <img src="<%= user.avatar%>" class="profile-pic"></a> &emsp;
+        <p><a href="/users/profile/<%=user._id%>"><%= user.name%></a></p>
+    </div>
+
+<%}%>
+</div>
+
+</div>
+</div>
