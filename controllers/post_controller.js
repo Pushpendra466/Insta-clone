@@ -87,19 +87,45 @@ module.exports.postDetails = async (req,res)=> {
     }
 }
 
+// module.exports.likePost = async (req,res)=>{
+//     try{
+//         let post = await Post.findById(req.params.id);
+//         let toggleLike = post.likes.includes(req.user._id);
+//         if(toggleLike){
+//             post.likes.pull(req.user._id);
+//             post.save();
+//             return res.redirect('back')
+//         }else{
+//             post.likes.push(req.user._id);
+//             post.save();
+//             return res.redirect('back')
+//         }
+//     }catch(err){
+//         console.log(err);
+//         return res.redirect('back');
+//     }
+// }
+
 module.exports.likePost = async (req,res)=>{
     try{
+        let deleted = false;
         let post = await Post.findById(req.params.id);
         let toggleLike = post.likes.includes(req.user._id);
         if(toggleLike){
             post.likes.pull(req.user._id);
             post.save();
-            return res.redirect('back')
+            deleted = true;
         }else{
             post.likes.push(req.user._id);
             post.save();
-            return res.redirect('back')
+            
         }
+        return res.status(200).json({
+            message: 'Request Successful',
+            data: {
+                deleted: deleted
+            }
+        })
     }catch(err){
         console.log(err);
         return res.redirect('back');
