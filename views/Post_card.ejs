@@ -44,13 +44,34 @@
     <i class="far fa-bookmark"></i>
     </div>
     </div>
-    <div style="padding-left: 10px;" ><a href="/posts/total-likes/<%= post._id%>"><span id=<%= post._id %>><%= post.likes.length %></span> Likes</div></a>
+    <div style="padding-left: 10px;" ><a href="/posts/total-likes/<%= post._id%>"><span id=<%= post._id %>><%= post.likes.length %></span> Likes</a></div>
     <div id="post-details">
     <b><a href="/users/profile/<%= post.user._id%>"><%= post.user.name %></a></b> &nbsp;
     <% if(post.caption) {%>
     <%= post.caption %>
     <%}%>
     </div>
+
+    <div id="comments">
+        <% if(post.comments.length>2) {%>
+            <p><a href="/posts/post-details/<%= post._id %>" style="color: gray;">View all <%=post.comments.length%> comments</a></p>
+            <%}%>
+    <% for([i,comment] of post.comments.entries()) {%>
+        <%if(i>1){%>
+            <%break;%>
+        <%}%>
+        <span><b><a href="/users/profile/<%= comment.user._id%>"><%= comment.user.name %></a></b>
+        <%= comment.content %></span><br>
+    <%}%>
+    </div>
+
+    <div id="comment-container">
+        <form action="/posts/comment/<%= post._id %>" method="POST">
+        <textarea name="content" placeholder="Add a comment..."></textarea>
+        <input type="submit" value="Post">
+    </form>
+    </div>
+
     </div>
 
     

@@ -12,5 +12,6 @@ router.post('/edit/:id',passport.checkAuthentication,postController.edit);
 router.get('/post-details/:id',passport.checkAuthentication,postController.postDetails);
 router.get('/like/:id',passport.checkAuthentication,postController.likePost);
 router.get('/total-likes/:id',passport.checkAuthentication,postController.totalLikes);
+router.post('/comment/:id',passport.checkAuthentication,postController.createComment);
 
 module.exports = router;

@@ -1,4 +1,6 @@
 const Post = require('../models/post');
+const Comment = require('../models/comment');
+
 const fs = require('fs');
 const path = require('path');
 
@@ -142,4 +144,26 @@ module.exports.totalLikes = async(req,res)=>{
         console.log('Error in Total Likes controller ',err);
         return res.redirect('back');
     }
+}
+
+// to add a new comment
+
+module.exports.createComment = async (req,res)=>{
+try{
+    let post = await Post.findById(req.params.id);
+    if(req.user._id){
+    let newComment = await Comment.create({
+        content: req.body.content,
+        user: req.user._id,
+        post: req.params.id
+    })
+    post.comments.push(newComment._id);
+    post.save();
+    return res.redirect('back');
+}
+
+}catch(err){
+    console.log('Error in creating a new comment in postController.js ',err);
+    return res.redirect('back');
+}
 }
