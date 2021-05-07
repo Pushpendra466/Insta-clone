@@ -48,7 +48,8 @@
     width: 290px;
     overflow-y: scroll;
     font-size: 0.95rem;
-    
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
     span{
         display: flex;
         align-items: flex-start;
