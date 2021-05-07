@@ -158,6 +158,7 @@
 #comment-container form textarea {
   width: 30vw;
   border: none;
+  outline: none;
   border-right: 0.5px solid lightgray;
 }
 
@@ -175,11 +176,6 @@
 
 #comments p {
   font-size: 0.9rem;
-}
-
-#comments p a {
-  text-decoration: none;
-  color: gray;
 }
 
 #comments span {
