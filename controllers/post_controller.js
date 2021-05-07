@@ -77,10 +77,26 @@ module.exports.edit = async (req,res)=>{
         return res.redirect('back');
     }
 }
+// let posts = await Post.find({})
+//     .sort('-createdAt')
+//     .populate('user',['name','id','avatar'])
+//     .populate({path : 'comments',
+//     options: { sort: { createdAt: -1 } },
+//     populate : {
+//         path : 'user' ,
+//         select: ['name','id','avatar'],
+//     }})
 
 module.exports.postDetails = async (req,res)=> {
     try{
-        let post =  await Post.findById(req.params.id).populate('user');
+        let post =  await Post.findById(req.params.id)
+        .populate('user',['name','id','avatar'])
+        .populate({path : 'comments',
+        options: { sort: { createdAt: -1 } },
+        populate : {
+            path : 'user' ,
+            select: ['name','id','avatar'],
+        }});
         return res.render('post_details',{title: 'post Detail',post: post})
 
     }catch(err){

@@ -1,24 +1,25 @@
 #container{
-    width: 60vw;
+    width: 800px;
     margin: 0 auto;
     border: 0.5px solid lightgray;
     font-size: 1.2rem;
+    background-color: #fff;
     #post-container{
         display: flex;
         #post-img{
-            width: 40vw;
+            width: 500px;
+            height: 545px;
         }
         
         #details{
             padding-left: 10px;
-            
             #avatar{
                 height: 40px;
                 width: 40px;
                 border-radius: 50%;
             }
             #user-details{
-                width: 18vw;
+                width: 290px;
                 display: flex;
                 align-items: center;
                 border-bottom: 0.5px solid lightgray;
@@ -39,4 +40,75 @@
 .location{
     color: gray;
     font-size: 0.9rem;
+}
+
+#comments{
+    margin-top: 20px;
+    height: 350px;
+    width: 290px;
+    overflow-y: scroll;
+    font-size: 0.95rem;
+    
+    span{
+        display: flex;
+        align-items: flex-start;
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    }
+}
+#comments::-webkit-scrollbar{
+    overflow-y: hidden
+}
+#bottom-icons{
+    // height: 60vh;
+    border-top: 0.5px solid lightgray;
+    margin-top: 10px;
+    padding-top: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    i{
+        padding-right: 10px;
+    }
+    
+}
+#likes{
+    font-size: 1rem;
+    a{
+        text-decoration: none;
+        color: black;
+    }
+}
+#comment-container{
+    margin-top: 10px;
+    width: 290px;
+   
+    form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 0.5px solid lightgray;
+        font-size: 1.2rem;
+        textarea{
+            width: 250px;
+            border: none;
+            outline: none;
+            border-right: 0.5px solid lightgray;
+        }
+        input{
+            border: none;
+            width: 90px;
+            background-color: #fff;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+    }
+}
+
+.profile-pic{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
 }

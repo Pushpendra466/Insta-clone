@@ -18,14 +18,63 @@
 </div>
 </div>
 
+
+<div id="comments">
+    <span>
+        <% if(post.caption){%>
+            <img src="<%= post.user.avatar%>" class="profile-pic">&emsp;
+            <p>
+                <b><%= post.user.name %></b>&nbsp;
+                <%= post.caption %>
+            </p>
+        
+        <%}%>
+    </span>
+    <br>
 <br>
-<br>
-<span>
-    <% if(post.caption){%>
-    <%= post.caption %>
-    <%}%></span>
+
+
+<% for(comment of post.comments) {%>
+    <span>
+        <a href="/users/profile/<%= comment.user._id%>"><img src="<%= comment.user.avatar %>" class="profile-pic"></a>&emsp;
+        <p><b><a href="/users/profile/<%= comment.user._id%>"><%= comment.user.name %></a></b>&nbsp;
+    <%= comment.content %></p></span><br>
+<%}%>
+</div>
+
+<div id="bottom-icons">
+    <div>
+    <a href="/posts/like/<%= post._id %>" class="toggle-heart" data-id=<%= post._id %>>
+        <% if(post.likes.includes(locals.user._id)){%>
+            <i class="fas fa-heart" id="heart-<%= post._id%>" style="color: red;"></i>
+        <%}else{%> 
+            <i class="far fa-heart" id="heart-<%= post._id%>"></i>
+        <%}%>
+    </a>
+    <i class="far fa-comment"></i>
+    <i class="far fa-paper-plane"></i>
+</div>
+<div>
+    <i class="far fa-bookmark"></i>
+    </div>
+</div>
+
+<div id="likes"><a href="/posts/total-likes/<%= post._id%>">
+    <span id=<%= post._id %>><%= post.likes.length %></span> Likes</a>
+</div>
+
+<div id="comment-container">
+    <form action="/posts/comment/<%= post._id %>" method="POST">
+    <textarea name="content" placeholder="Add a comment..."></textarea>
+    <input type="submit" value="Post">
+</form>
+</div>
 
 </div>
 
+
+
 </div>
 </div>
+<!-- same js file for the like button to not reload as implemented in post card which is inside home -->
+<script src="/js/home.js" async defer></script>
