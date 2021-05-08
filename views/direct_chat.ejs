@@ -1,8 +1,15 @@
 <link rel="stylesheet" href="/css/direct_chat.css">
 <div id="container">
     <div id="details">
-        <img src="<%= user.avatar %>" id="profile-pic">&nbsp;
-        <b><%= user.name%></b>
+        <a href="/users/profile/<%=user._id%>"><img src="<%= user.avatar %>" id="profile-pic"></a>&nbsp;
+        <b><a href="/users/profile/<%=user._id%>"><%= user.name%></a></b>
+    </div>
+    <div id="chats">
+
     </div>
 
+    <div id="typed-message">
+        <textarea id="message"></textarea>
+        <input type="submit" value="Send" id="btn">
+    </div>
 </div>

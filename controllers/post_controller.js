@@ -167,7 +167,7 @@ module.exports.totalLikes = async(req,res)=>{
 module.exports.createComment = async (req,res)=>{
 try{
     let post = await Post.findById(req.params.id);
-    if(req.user._id){
+    if(req.user._id && req.body.content!=''){
     let newComment = await Comment.create({
         content: req.body.content,
         user: req.user._id,
@@ -175,9 +175,8 @@ try{
     })
     post.comments.push(newComment._id);
     post.save();
-    return res.redirect('back');
 }
-
+    return res.redirect('back');
 }catch(err){
     console.log('Error in creating a new comment in postController.js ',err);
     return res.redirect('back');

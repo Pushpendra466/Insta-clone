@@ -7,7 +7,6 @@
 }
 
 #container #details {
-  padding-bottom: 10px;
   height: 40px;
   border-bottom: 0.5px solid lightgray;
   display: -webkit-box;
@@ -24,5 +23,42 @@
   height: 40px;
   width: 40px;
   border-radius: 50%;
+}
+
+#container #details a {
+  text-decoration: none;
+  color: black;
+}
+
+#container #chats {
+  height: 400px;
+  overflow-y: scroll;
+}
+
+#container #typed-message {
+  border: 0.5px solid lightgray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#container #typed-message #message {
+  width: 700px;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+}
+
+#container #typed-message #btn {
+  font-size: 1.2rem;
+  height: 40px;
+  width: 100px;
+  background-color: #fff;
+  border: none;
+  border-left: 0.5px solid lightgray;
+  cursor: pointer;
 }
 /*# sourceMappingURL=direct_chat.css.map */

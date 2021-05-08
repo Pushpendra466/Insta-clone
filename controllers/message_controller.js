@@ -4,7 +4,6 @@ module.exports.chatPage = async (req,res) =>{
     try{
         let followings = await User.findById(req.user._id).populate('followings',['name','_id','avatar']);
         let followers = await User.findById(req.user._id).populate('followers',['name','_id','avatar']);
-        console.log(followings,followers);
         return res.render('chat_page',{title:'inbox | chat',followings: followings, followers: followers})
     }catch(err){
         console.log('Error in chat page ',err)

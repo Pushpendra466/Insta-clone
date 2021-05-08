@@ -31,6 +31,10 @@
             height: 470px;
             overflow-y: scroll;
             margin-top: 10px;
+            a{
+                text-decoration: none;
+                color: black;
+            }
             div{
                 border-bottom: 0.5px solid lightgray;
                 padding: 5px;

@@ -49,6 +49,11 @@
   margin-top: 10px;
 }
 
+#container #users #other-users a {
+  text-decoration: none;
+  color: black;
+}
+
 #container #users #other-users div {
   border-bottom: 0.5px solid lightgray;
   padding: 5px;
