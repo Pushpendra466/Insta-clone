@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAA;EACN,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,MAAM,EAAE,qBAAqB;EAC7B,MAAM,EAAE,MAAM;EACd,gBAAgB,EAAE,IAAI;CAMzB;;AAXD,AAMI,UANM,CAMN,QAAQ,CAAA;EACJ,cAAc,EAAE,IAAI;EACpB,MAAM,EAAE,IAAI;EACZ,aAAa,EAAE,qBAAqB;CACvC",
+    "sources": [
+        "direct_chat.scss"
+    ],
+    "names": [],
+    "file": "direct_chat.css"
+}

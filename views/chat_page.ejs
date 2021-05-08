@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/css/chat_page.css">
+
+<div id="container">
+
+    <div id="users">
+        <div id="profile-user">
+        <div><h3><a href="/users/profile/<%= locals.user.id%>"><%= locals.user.name %></a></h3>&emsp;
+        <i class="far fa-edit"></i></div>
+        </div>
+
+        <div id="other-users">
+            <% for(following of followings.followings) {%>
+            <a href="/message/direct/t/<%=following._id%>"><div>
+            <img src="<%=following.avatar%>" id="profile-pic">&emsp;
+            <h4><%=following.name%></h4>
+            </div></a>
+                
+            <%}%>
+
+            <% for(follower of followers.followers) {%>
+                <a href="/message/direct/t/<%= follower._id%>"><div>
+                    <img src="<%=follower.avatar%>" id="profile-pic">&emsp;
+                    <h4><%=follower.name%></h4> 
+                </div></a>
+                   
+            <%}%>
+        </div>
+
+    </div>
+    <div id="message">
+
+    </div>
+</div>
+<div id="search-user">
+    <div id="top">
+        <i class="fas fa-times"></i>
+        <h3>New Message</h3>
+    </div>
+    
+    <form>
+<span>To: </span><input type="search" name="user" id="inp">
+<input type="submit" value="Search" id="btn">
+    </form>
+</div>
+
+<script src="/js/chat_page.js"></script>
