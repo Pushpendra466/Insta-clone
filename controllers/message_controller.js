@@ -13,9 +13,9 @@ module.exports.chatPage = async (req,res) =>{
 
 module.exports.directChat = async(req,res) =>{
     try{
-        let user = await User.findById(req.params.id);
+        let chat_user = await User.findById(req.params.id);
 
-        return res.render('direct_chat',{title:'Direct chat',user: user})
+        return res.render('direct_chat',{title:'Direct chat',chat_user})
     }catch(err){
         console.log('Error in direct chat  ',err)
         return res.redirect('back');

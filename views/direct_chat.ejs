@@ -1,15 +1,24 @@
 <link rel="stylesheet" href="/css/direct_chat.css">
 <div id="container">
     <div id="details">
-        <a href="/users/profile/<%=user._id%>"><img src="<%= user.avatar %>" id="profile-pic"></a>&nbsp;
-        <b><a href="/users/profile/<%=user._id%>"><%= user.name%></a></b>
+        <a href="/users/profile/<%=chat_user._id%>"><img src="<%= chat_user.avatar %>" id="profile-pic"></a>&nbsp;
+        <b><a href="/users/profile/<%=chat_user._id%>"><%= chat_user.name%></a></b>
     </div>
+    
     <div id="chats">
+        <ul id="messages">
 
+        </ul>
     </div>
-
+    
     <div id="typed-message">
+        <input type="text" value="<%= locals.user._id%>" id="getSenderId" hidden>
+        <input type="text" value="<%= chat_user._id%>" id="getReceiverId" hidden>
+        <input type="text" value="<%= locals.user.name%>" id="getsenderName" hidden>
         <textarea id="message"></textarea>
         <input type="submit" value="Send" id="btn">
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>

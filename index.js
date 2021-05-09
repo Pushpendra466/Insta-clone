@@ -9,6 +9,8 @@ const MongoStore = require('connect-mongo');
 
 const port = 8080;
 
+// Setup chat server to be used with socket.io
+require('./config/chat_sockets').getApp(app,port);
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('./assets'));
@@ -42,9 +44,9 @@ app.use(passport.setAuthenticatedUser);
 
 app.use('/',require('./routes/index'));
 
-app.listen(port,(err)=>{
-    if(err){
-        console.log("Error in starting the server : ",err);
-    }
-    console.log("Server is up and runnig on port : ",port);
-})
+// app.listen(port,(err)=>{
+//     if(err){
+//         console.log("Error in starting the server : ",err);
+//     }
+//     console.log("Server is up and runnig on port : ",port);
+// })
