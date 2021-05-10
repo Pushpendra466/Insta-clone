@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const messageController = require('../controllers/message_controller');
+const passport = require('passport');
 
 module.exports.getApp = (app,port)=>{
     const http = require('http');
@@ -11,14 +13,13 @@ module.exports.getApp = (app,port)=>{
     io.on('connection', (socket) => {
         socket.on('user_connected',function(userId){
             users[userId] = socket.id;
-            console.log('a user connected',users);
+            // console.log('a user connected',users);
         });
         
 
         socket.on('send_message',async function(data){
-            console.log(users);
             let socketId = users[data.receiver];
-       
+            messageController.addMessage(data);
             io.to(socketId).emit('new_message', {data});
         })
 

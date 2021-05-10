@@ -24,6 +24,24 @@
     #chats{
         height: 400px;
         overflow-y: scroll;
+        
+            ul{
+                padding-right: 20px;
+                margin-top: 10px;
+                
+                
+                li{
+                    
+                    margin-top: 10px;
+                    list-style: none;
+                    
+                    padding: 10px;
+                    border: 0.5px solid lightgray;
+                    border-radius: 10px;
+                    
+                }
+            }
+        
     }
     #typed-message{
         border: 0.5px solid lightgray;
@@ -45,4 +63,23 @@
             cursor: pointer;
         }
     }
+}
+
+.sender{
+    display: flex;
+    margin-left: 50%;
+    justify-content: flex-end;
+    flex-direction: column;
+    max-width: 350px;
+    word-wrap: break-word;
+    background-color: palegreen;
+}
+.receiver{
+    display: flex;
+    margin-right: 50%;
+    justify-content: flex-start;
+    flex-direction: column;
+    max-width: 350px;
+    word-wrap: break-word;
+    background-color: #fafafa;
 }

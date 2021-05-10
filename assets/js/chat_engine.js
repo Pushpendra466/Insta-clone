@@ -1,6 +1,6 @@
 let socket = io();
 let btn = document.getElementById('btn');
-let message = document.getElementById('message');
+let ul = document.getElementById('messages');
 let senderId = document.getElementById('getSenderId');
 let receiverId = document.getElementById('getReceiverId');
 let senderName = document.getElementById('getsenderName');
@@ -17,6 +17,15 @@ socket.emit('user_connected',senderId.value);
         receiver: receiverId.value,
         senderName: senderName.value
       });
+      
+      let item = document.createElement('li');
+      item.textContent = message.value;
+      ul.appendChild(item);
+      console.log(ul.scrollHeight)
+      // $('#messages').animate({scrollTop: $('#messages').prop("scrollHeight")}, 1500);
+      // 
+      item.classList.add('sender');
+
       message.value = '';
     }
   });
@@ -26,8 +35,9 @@ socket.emit('user_connected',senderId.value);
     {
     let item = document.createElement('li');
     item.textContent = data.data.message;
-    messages.appendChild(item);
-    window.scrollTo(0, document.body.scrollHeight);
+    ul.appendChild(item);
+    // $('#messages').animate({scrollTop: $('#messages').prop("scrollHeight")}, 1500);
+    item.classList.add('receiver');
 }
   else {
     new Noty({

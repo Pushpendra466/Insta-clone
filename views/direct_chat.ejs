@@ -7,7 +7,14 @@
     
     <div id="chats">
         <ul id="messages">
-
+            <% console.log(locals.user._id) %>
+            <% for(chat of chats) {%>
+                <%if(String(chat.sender) == String(locals.user._id) ){%>
+                <li class="sender"><%= chat.message%></li>
+                <%}else{%>
+                    <li class="receiver"><%= chat.message%></li>
+                    <%}%>
+                <%}%>
         </ul>
     </div>
     
