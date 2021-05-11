@@ -5,6 +5,10 @@ let senderId = document.getElementById('getSenderId');
 let receiverId = document.getElementById('getReceiverId');
 let senderName = document.getElementById('getsenderName');
 
+// for scroll to bottom
+let chats = document.getElementById('chats');
+chats.scrollTop = ul.scrollHeight;
+
 socket.emit('user_connected',senderId.value);
 
   btn.addEventListener('click', function(e) {
@@ -21,9 +25,9 @@ socket.emit('user_connected',senderId.value);
       let item = document.createElement('li');
       item.textContent = message.value;
       ul.appendChild(item);
-      console.log(ul.scrollHeight)
-      // $('#messages').animate({scrollTop: $('#messages').prop("scrollHeight")}, 1500);
-      // 
+      console.log(ul.scrollHeight);
+      chats.scrollTop = ul.scrollHeight;
+      
       item.classList.add('sender');
 
       message.value = '';
@@ -36,7 +40,8 @@ socket.emit('user_connected',senderId.value);
     let item = document.createElement('li');
     item.textContent = data.data.message;
     ul.appendChild(item);
-    // $('#messages').animate({scrollTop: $('#messages').prop("scrollHeight")}, 1500);
+    chats.scrollTop = ul.scrollHeight
+    
     item.classList.add('receiver');
 }
   else {
