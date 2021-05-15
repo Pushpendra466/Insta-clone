@@ -193,6 +193,7 @@ module.exports.followings = async (req,res) =>{
         return res.redirect('back');
     }
 }
+
 module.exports.followers = async (req,res) =>{
 
     try{
@@ -203,5 +204,16 @@ module.exports.followers = async (req,res) =>{
     }catch(err){
         console.log('Error in followers userController.js ',err);
         return res.redirect('back');
+    }
+}
+
+module.exports.search = async (req,res) =>{
+    try{
+        let users = [];
+        // console.log(req.body.searchBox)
+        users = await User.find({$or: [{email: req.body.searchBox},{name: req.body.searchBox}]},{name: 1,email: 1,_id: 1,avatar: 1});
+        return res.status(200).json({users})
+    }catch(err){
+        console.log('Error in searching user ',err)
     }
 }

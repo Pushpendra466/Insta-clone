@@ -32,3 +32,34 @@
     top: 0px;
     margin-bottom: 25px;
 }
+#search-results{
+    display: none;
+    border: 0.5px solid lightgray;
+    width: 190px;
+    list-style: none;
+    background-color: #fff;
+    height: 100px;
+    overflow-y: scroll;
+    padding-top: 5px;
+    li{
+        margin-left: -30px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 0.5px solid lightgray;
+        display: flex;
+        align-items: center;
+        a{
+            text-decoration: none;
+            color: black;
+            font-size: 1.2rem;
+        }
+    }
+}
+#search-results::-webkit-scrollbar{
+    display: none;
+}
+.profile-pic{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}

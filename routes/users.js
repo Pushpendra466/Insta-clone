@@ -18,6 +18,7 @@ router.get('/follow/:id',passport.checkAuthentication,userController.follow);
 router.get('/unfollow/:id',passport.checkAuthentication,userController.unfollow);
 router.get('/followings/:id',passport.checkAuthentication,userController.followings);
 router.get('/followers/:id',passport.checkAuthentication,userController.followers);
+router.post('/search',passport.checkAuthentication,userController.search)
 
 
 module.exports = router;
