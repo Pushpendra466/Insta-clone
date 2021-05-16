@@ -15,12 +15,15 @@
         <%- style %>
     </head>
     <body>
-        <% if(locals.user) {%>
+    <% if(locals.user) {%>
       <%- include('_header') %>
       <%}%>
+      
       <%- body %>
 
-      <%- include('_footer') %>
+      <% if(locals.user) {%>
+        <%- include('_footer') %>
+        <%}%>
         
         <script src="https://kit.fontawesome.com/57790f0bc8.js" crossorigin="anonymous"></script>
         <!-- <script src="" async defer></script> -->

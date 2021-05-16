@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="/css/header.css">
 <div id="nav-header">
     <ul>
-        <li><img src="/images/insta_logo.png" alt="logo"> </li>
+        <li><a href="/"><img src="/images/insta_logo.png" alt="logo"></a> </li>
 
         <li class="search-box"><form id="searchUser" method="POST" action="/users/search">
-            <input type="search" name="searchBox" placeholder="search" id="searchInput"><i class="fas fa-search"></i>
+        <div id="srch-box"><input type="search" name="searchBox" placeholder="search" id="searchInput"><i class="fas fa-search"></i></div>
         </form>
         <ul style="position: absolute;" id="search-results">
            
@@ -12,16 +12,17 @@
     </li>
 
         <li>
-            <a href="/"><i class="fas fa-home"></i></a>
-            <a href="/message/direct"><i class="fab fa-facebook-messenger"></i></a>
-            <i class="fas fa-compass"></i>
-            <i class="fas fa-heart"></i>
+            <a href="/" class="hide home-i"><i class="fas fa-home"></i></a>
+            <a href="/message/direct" ><i class="fab fa-facebook-messenger"></i></a>
+            <a class="hide"><i class="fas fa-compass" ></i></a>
+            <a class="hide"><i class="fas fa-heart" ></i></a>
             <% if(locals.user) {%>
-            <a href="/posts/new-post"><i class="fas fa-plus-square"></i></a>
-            <a href="/users/profile/<%=locals.user._id%>"><i class="fas fa-user"></i></a>
-            <a href="/users/sign-out"><i class="fas fa-sign-out-alt"></i></a>
+            <a href="/posts/new-post" class="hide"><i class="fas fa-plus-square"></i></a>
+            <a href="/users/profile/<%=locals.user._id%>" class="hide"><i class="fas fa-user"></i></a>
+            <a href="/users/sign-out" class="hide"><i class="fas fa-sign-out-alt"></i></a>
             <%}%>
         </li>
+
     </ul>
 </div>
 <script src="/js/header.js" async defer></script>

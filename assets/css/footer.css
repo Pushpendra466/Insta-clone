@@ -1,0 +1,35 @@
+#footer {
+  position: fixed;
+  width: 100vw;
+  height: 40px;
+  bottom: 0;
+  background-color: #FFFFFF;
+  border: 0.5px solid lightgray;
+  display: none;
+}
+
+#footer ul {
+  padding: 10px 10vw;
+  list-style: none;
+}
+
+#footer ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#footer ul li i {
+  padding-right: 20px;
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 650px) {
+  #footer {
+    display: block;
+  }
+}
+/*# sourceMappingURL=footer.css.map */

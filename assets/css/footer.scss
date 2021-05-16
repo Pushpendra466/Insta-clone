@@ -1,0 +1,26 @@
+#footer{
+    position: fixed;
+    width: 100vw;
+    height: 40px;
+    bottom: 0;
+    background-color: #FFFFFF;
+    border: 0.5px solid lightgray;
+    display: none;
+    ul{
+    padding:10px 10vw;
+    list-style: none;
+    li{
+        display: flex;
+        justify-content: space-between;
+        i{
+            padding-right: 20px;
+            font-size: 1.5rem;
+        }
+    }
+    }
+}
+@media screen and (max-width: 650px){
+    #footer{
+        display: block;
+    }
+}
