@@ -7,7 +7,7 @@
 }
 
 #container #card-container {
-  width: 45vw;
+  width: 600px;
   background-color: #fff;
   border: 0.5px solid lightgray;
   margin-bottom: 50px;
@@ -50,7 +50,7 @@
 
 #container #card-container #post-pic {
   height: 750px;
-  width: 45vw;
+  width: 600px;
 }
 
 #container #card-container #bottom {
@@ -74,7 +74,7 @@
 
 #container #right-panel {
   position: fixed;
-  right: 10vw;
+  right: 5vw;
   width: 300px;
 }
 
@@ -128,7 +128,7 @@
   background-color: #fff;
   border: 0.5px solid lightgray;
   border-radius: 5px;
-  width: 45vw;
+  width: 600px;
 }
 
 .pa-b {
@@ -137,7 +137,7 @@
 
 #comment-container {
   margin-top: 15px;
-  width: 45vw;
+  width: 600px;
 }
 
 #comment-container form {
@@ -156,7 +156,7 @@
 }
 
 #comment-container form textarea {
-  width: 30vw;
+  width: 450px;
   border: none;
   outline: none;
   border-right: 0.5px solid lightgray;
@@ -164,7 +164,7 @@
 
 #comment-container form input {
   border: none;
-  width: 10vw;
+  width: 150px;
   background-color: #fff;
   cursor: pointer;
   font-size: 1rem;
@@ -180,5 +180,55 @@
 
 #comments span {
   font-size: 0.9rem;
+}
+
+@media screen and (max-width: 1150px) {
+  #container {
+    width: 80vw;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 1095px) {
+  #container {
+    width: 600px;
+  }
+  #right-panel {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  #container {
+    margin: 0 auto;
+    width: 90vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #container #card-container {
+    width: 90vw;
+    background-color: #fff;
+  }
+  #container #card-container #post-pic {
+    height: 500px;
+    width: 90vw;
+  }
+  #comment-container {
+    margin-top: 15px;
+    width: 90vw;
+  }
+  #comment-container form textarea {
+    width: calc( 90vw - 80px);
+  }
+  #comment-container form input {
+    width: calc( 90vw - calc( 90vw - 80px));
+  }
+  #post-options {
+    width: 90vw;
+  }
 }
 /*# sourceMappingURL=home.css.map */
