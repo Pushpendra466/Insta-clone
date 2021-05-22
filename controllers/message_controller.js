@@ -25,7 +25,7 @@ module.exports.directChat = async(req,res) =>{
 }
 
 module.exports.addMessage = async(data)=>{
-    console.log(data);
+    // console.log(data);
     Chats.create({
         message: data.message,
         sender: data.sender,

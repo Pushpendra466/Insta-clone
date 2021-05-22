@@ -1,12 +1,13 @@
 #container{
     margin: 0 auto;
-    width: 70vw;
+    width: 60vw;
+    
 #profile-details-container{
     padding-top: 50px;
     display: flex;
     justify-content: space-around;
     padding-bottom: 20px;
-    border-bottom: 0.5px solid lightgray;
+    
     a{
         text-decoration: none;
         color: black;
@@ -29,6 +30,20 @@
         height: 300px;
     }
 }
+#actions-box{
+    display: flex;
+    justify-content: center;
+    
+    a{
+        text-decoration: none;
+        color: black;
+    }
+   p{
+       height: 15px;
+   }
+   border-bottom: 0.5px solid lightgray;
+}
+
 }
 .space-between{
     padding-top: 15px;
@@ -44,4 +59,67 @@
 }
 h3{
     padding-top: 15px;
+}
+
+@media screen and (max-width: 480px){
+    #container{
+        margin: 0 auto;
+        width: 95vw;
+        #profile-details-container{
+            padding-top: 50px;
+            display: flex;
+            justify-content: space-around;
+            
+            padding-bottom: 20px;
+            
+            
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            #profile-img{
+                height: 80px; 
+                width: 80px;
+                border-radius: 50%;
+            }
+        }
+        #user-posts {
+            display: flex;
+            padding: 5px;
+            flex-wrap: wrap;
+            div{
+                padding: 5px;
+            }
+            img{
+                width: 25vw;
+                height: 25vw;
+            }
+        }
+    }
+    .space-between{
+        padding-top: 15px;
+        // margin-bottom: 12px;
+        font-size: 1.2rem;
+        width: 200px;
+        display: flex;
+        // padding-right: 15px;
+        justify-content: space-between;
+        div{
+            padding-right: 10px;
+        }
+    }
+    #actions-box{
+        display: flex;
+        justify-content: center;
+        a{
+            text-decoration: none;
+            color: black;
+        }
+       p{
+           height: 15px;
+       }
+       border-bottom: 0.5px solid lightgray;
+    }
+
+ 
 }

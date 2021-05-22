@@ -17,22 +17,23 @@
     <%= profile_user.bio %>
 </div>
 </div>
-<div>
-<% if(locals.user.id == profile_user.id) {%>
-    <a href="/users/profile-edit/<%=locals.user.id%>">Edit &nbsp;<i class="fas fa-user-edit"></i></a>
-<%}%>
-<% if(locals.user.id != profile_user.id) {%>
-    <p style="margin-bottom: 20px; border: 0.5px solid lightgray; padding: 5px; background-color: #fff;"><a href="/message/direct/t/<%=profile_user.id%> ">Message</a></p>
-    <% if(isFollowed) {%>
-        <p style="border: 0.5px solid lightgray; padding: 5px; background-color: #fff;"><a href="/users/unfollow/<%=profile_user.id%>">Unfollow</a></p>
-    <%}%>
-    <% if(!isFollowed) {%>
-        <a href="/users/follow/<%=profile_user.id%>">Follow</a>
-    <%}%>
-    <%}%>
-</div>
+
 
 </div>
+<div id="actions-box">
+    <% if(locals.user.id == profile_user.id) {%>
+        <a href="/users/profile-edit/<%=locals.user.id%>">Edit &nbsp;<i class="fas fa-user-edit"></i></a>
+    <%}%>
+    <% if(locals.user.id != profile_user.id) {%>
+        <p style="margin-bottom: 20px; border: 0.5px solid lightgray; padding: 5px; background-color: #fff;"><a href="/message/direct/t/<%=profile_user.id%> ">Message</a></p>
+        <% if(isFollowed) {%>
+            <p style="border: 0.5px solid lightgray; padding: 5px; background-color: #fff;"><a href="/users/unfollow/<%=profile_user.id%>">Unfollow</a></p>
+        <%}%>
+        <% if(!isFollowed) {%>
+            <a href="/users/follow/<%=profile_user.id%>">Follow</a>
+        <%}%>
+        <%}%>
+    </div>
 <h3 style="text-align: center;"><i class="fas fa-th"></i>&nbsp;POSTS</h3>
 <div id="user-posts"> 
 <% for(post of profile_posts) {%>

@@ -1,6 +1,6 @@
 #container {
   margin: 0 auto;
-  width: 70vw;
+  width: 60vw;
 }
 
 #container #profile-details-container {
@@ -11,7 +11,6 @@
   -ms-flex-pack: distribute;
       justify-content: space-around;
   padding-bottom: 20px;
-  border-bottom: 0.5px solid lightgray;
 }
 
 #container #profile-details-container a {
@@ -43,6 +42,25 @@
   height: 300px;
 }
 
+#container #actions-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: 0.5px solid lightgray;
+}
+
+#container #actions-box a {
+  text-decoration: none;
+  color: black;
+}
+
+#container #actions-box p {
+  height: 15px;
+}
+
 .space-between {
   padding-top: 15px;
   font-size: 1.2rem;
@@ -62,5 +80,75 @@
 
 h3 {
   padding-top: 15px;
+}
+
+@media screen and (max-width: 480px) {
+  #container {
+    margin: 0 auto;
+    width: 95vw;
+  }
+  #container #profile-details-container {
+    padding-top: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    padding-bottom: 20px;
+  }
+  #container #profile-details-container a {
+    text-decoration: none;
+    color: black;
+  }
+  #container #profile-details-container #profile-img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+  }
+  #container #user-posts {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 5px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #container #user-posts div {
+    padding: 5px;
+  }
+  #container #user-posts img {
+    width: 25vw;
+    height: 25vw;
+  }
+  .space-between {
+    padding-top: 15px;
+    font-size: 1.2rem;
+    width: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .space-between div {
+    padding-right: 10px;
+  }
+  #actions-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-bottom: 0.5px solid lightgray;
+  }
+  #actions-box a {
+    text-decoration: none;
+    color: black;
+  }
+  #actions-box p {
+    height: 15px;
+  }
 }
 /*# sourceMappingURL=profile.css.map */
