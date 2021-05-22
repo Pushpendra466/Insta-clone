@@ -35,4 +35,10 @@
           justify-content: center;
   padding: 10px;
 }
+
+@media screen and (max-width: 480px) {
+  #container {
+    width: 85vw;
+  }
+}
 /*# sourceMappingURL=new_post.css.map */
