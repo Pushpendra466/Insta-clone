@@ -83,3 +83,9 @@
     word-wrap: break-word;
     background-color: #fafafa;
 }
+
+@media screen and (max-width:819px){
+    #container{
+        width: 95vw;
+    }
+}

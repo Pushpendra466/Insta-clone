@@ -129,4 +129,75 @@
   border-left: 0.5px solid lightgray;
   cursor: pointer;
 }
+
+@media screen and (max-width: 819px) {
+  #container {
+    margin: 0 auto;
+    width: 90vw;
+    height: 80vh;
+    border: 0.5px solid lightgray;
+    background-color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #container #users {
+    width: 90vw;
+  }
+  #container #users #profile-user {
+    height: 50px;
+    border-bottom: 0.5px solid lightgray;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #container #users #profile-user div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 1.2rem;
+  }
+  #container #users #profile-user div .fa-edit {
+    cursor: pointer;
+  }
+  #container #users #profile-user div h3 a {
+    text-decoration: none;
+    color: black;
+  }
+  #container #users #other-users {
+    height: 85vh;
+    overflow-y: scroll;
+    margin-top: 10px;
+  }
+  #container #users #other-users a {
+    text-decoration: none;
+    color: black;
+  }
+  #container #users #other-users div {
+    border-bottom: 0.5px solid lightgray;
+    padding: 5px;
+    margin-bottom: 10px;
+    height: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #container #users #other-users #profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  #container #message {
+    display: none;
+  }
+}
 /*# sourceMappingURL=chat_page.css.map */

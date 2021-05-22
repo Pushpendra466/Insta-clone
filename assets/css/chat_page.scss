@@ -100,3 +100,64 @@
     }
     
 }
+
+@media screen and (max-width: 819px){
+    #container{
+        margin: 0 auto;
+        width: 90vw;
+        height: 80vh;
+        border: 0.5px solid lightgray;
+        background-color: #fff;
+        display: flex;
+        #users{
+            width: 90vw;
+            #profile-user{
+                height: 50px;
+                border-bottom: 0.5px solid lightgray;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+               div{
+                   display: flex;
+                   font-size: 1.2rem;
+                   .fa-edit{
+                       cursor: pointer;
+                   }
+                   h3{
+                       a{
+                           text-decoration: none;
+                           color: black;
+                       }
+                   }
+               }
+            }
+            #other-users{
+                height: 85vh;
+                overflow-y: scroll;
+                margin-top: 10px;
+                a{
+                    text-decoration: none;
+                    color: black;
+                }
+                div{
+                    border-bottom: 0.5px solid lightgray;
+                    padding: 5px;
+                    margin-bottom: 10px;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+    
+                }
+                
+                #profile-pic{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                }
+            }
+        }
+        #message{
+            display: none;
+        }
+    }
+}
